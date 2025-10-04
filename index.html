@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippe Delanghe - Conférencier IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Aptos', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #1a1a2e;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        section {
+            padding: 80px 20px;
+        }
+        
+        section:nth-child(even) {
+            background: #16213e;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #bb86fc;
+        }
+        
+        .themes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .theme-card {
+            background: #0f3460;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            border: 1px solid #bb86fc;
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(187, 134, 252, 0.3);
+        }
+        
+        .theme-card h3 {
+            color: #bb86fc;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .difference {
+            background: #0f3460;
+            padding: 30px;
+            border-left: 5px solid #bb86fc;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .conferences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .conf-card {
+            background: #0f3460;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            border: 1px solid #bb86fc;
+        }
+        
+        .conf-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .conf-card h4 {
+            padding: 20px;
+            background: #bb86fc;
+            color: #1a1a2e;
+            font-size: 1.2em;
+        }
+        
+        .conf-card p {
+            padding: 20px;
+        }
+        
+        .conf-card a {
+            display: block;
+            padding: 15px 20px;
+            background: #16213e;
+            color: #bb86fc;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+        
+        .conf-card a:hover {
+            background: #bb86fc;
+            color: #1a1a2e;
+        }
+        
+        .clients-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .client-tag {
+            background: #bb86fc;
+            color: #1a1a2e;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 40px;
+        }
+        
+        .contact-info a {
+            color: #bb86fc;
+            text-decoration: none;
+            display: block;
+            margin: 15px 0;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: #03dac6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #bb86fc;
+            color: #1a1a2e;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #03dac6;
+        }
+        
+        .upcoming {
+            background: #2d4a3e;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #03dac6;
+        }
+        
+        footer {
+            background: #0f0f1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .testimonials {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+        
+        .testimonial {
+            background: #0f3460;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 4px solid #bb86fc;
+            font-style: italic;
+            color: #e0e0e0;
+        }
+        
+        .photo-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .photo-card {
+            text-align: center;
+        }
+        
+        .photo-card img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            border: 3px solid #bb86fc;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQERfFRhd2aYSg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1721636959508?e=1738800000&v=beta&t=aJZG4xLI-wFdLxXTjFLfR9WfPXuZHGJFqNr2hzJvuac" alt="Philippe Delanghe" class="hero-image">
+        <h1>Philippe Delanghe</h1>
+        <p>Conférencier & Consultant en Intelligence Artificielle</p>
+        <p><em>Des conférences qui font la différence</em></p>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2>Témoignages</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    "Cette conférence m'a vraiment intéressé et je vous en remercie grandement"
+                </div>
+                <div class="testimonial">
+                    "Merci beaucoup Philippe, pour cette passionnante conférence."
+                </div>
+                <div class="testimonial">
+                    "Philippe a réussi à tenir en haleine son public pendant plus de deux heures, ce qui est remarquable compte tenu de la complexité des sujets abordés"
+                </div>
+            </div>
+            
+            <div class="photo-section">
+                <div class="photo-card">
+                    <img src="https://drive.google.com/uc?export=view&id=1MRoBR5Luny9DB46DBMZItmgoId6KRkbb" alt="Philippe Delanghe - Photo professionnelle">
+                </div>
+                <div class="photo-card">
+                    <img src="https://drive.google.com/uc?export=view&id=1yyVUnB3TQ8oxK8ZfQVqTjaMt3pn5tgCW" alt="Philippe Delanghe - AI Philosopher">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Mon parcours</h2>
+            <p style="text-align: center; font-size: 1.2em; max-width: 900px; margin: 0 auto; line-height: 1.8;">
+                Né à l'époque de la règle à calcul et des tables de logarithmes, j'ai traversé 6 décennies d'innovation technologique, dans ma vie et mon travail. Ingénieur de formation et communiquant dans l'âme, l'IA m'intéresse depuis toujours - j'écrivais déjà dessus il y a 10 ans. Et puis... j'ai eu mon "moment ChatGPT", réalisant que l'IA générative c'était la première technologie qui... comprend ce qu'on lui dit. Et donc, accessible à tous, indépendamment de toute compétence technique. Une révolution à l'aune de l'électricité ou du transistor. Qui allait avoir un impact colossal sur notre société, ce que nous sommes et ce qui donne du sens à nos vies.
+            </p>
+            <p style="text-align: center; font-size: 1.2em; max-width: 900px; margin: 30px auto 0; line-height: 1.8;">
+                C'est cette universalité et ces enjeux colossaux qui m'ont fait pousser la porte du club informatique de mon village pour parler "chat j'ai pété" avec les seniors du cru, puis faire une conférence ouverte à tous, puis une autre, puis une autre...
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Thématiques de conférence</h2>
+            
+            <h3 style="text-align: center; color: #bb86fc; margin: 40px 0 30px; font-size: 1.8em;">Entreprises & Organisations</h3>
+            <div class="themes">
+                <div class="theme-card">
+                    <h3>🎯 Vision Stratégique IA</h3>
+                    <p>Comprendre les enjeux business de l'IA générative. Au-delà du buzz : opportunités réelles, risques à anticiper, et stratégies de mise en œuvre qui fonctionnent. Pour dirigeants et décideurs.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <h3>⚙️ De la Stratégie à l'Action</h3>
+                    <p>Comment passer du concept à la réalité. Identification de cas d'usage, gestion du changement, accompagnement des équipes. Retour d'expérience concret d'un déploiement IA dans une entreprise de 500 personnes.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <h3>💼 IA Métier</h3>
+                    <p>Applications concrètes par fonction : Marketing, RH, Sales, Formation. Workshops pratiques avec démonstrations live. De zéro à héros en 45 minutes.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <h3>🛠️ Formations / Initiations Outils</h3>
+                    <p>Maîtrise des outils IA : ChatGPT, Claude, Mistral, Gemini, Midjourney, NotebookLM, Suno... Sessions pratiques adaptées à vos besoins métiers.</p>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; color: #03dac6; margin: 60px 0 30px; font-size: 1.8em;">Grand Public</h3>
+            <div class="themes">
+                <div class="theme-card">
+                    <h3>📚 Histoire de l'IA</h3>
+                    <p>De Turing à ChatGPT - comprendre d'où vient l'IA pour mieux saisir où elle va. Une perspective historique accessible à tous.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <h3>🌐 Écosystème & Acteurs</h3>
+                    <p>Acteurs majeurs, enjeux économiques, géopolitique de l'IA. Les figures actuelles à écouter pour comprendre la révolution en cours.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <h3>🔧 Outils & Usages Quotidiens</h3>
+                    <p>Découverte des outils disponibles et comment les utiliser au quotidien. Démonstrations concrètes, accessibles à tous.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <h3>⚠️ Dangers & Protection</h3>
+                    <p>Comprendre les risques réels de l'IA et comment s'en prémunir. Deepfakes, manipulation, vie privée - sans catastrophisme, avec pragmatisme.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <h3>🧠 Grandes Questions de Société</h3>
+                    <p>Fin du travail, scénarios utopiques et dystopiques, singularité, alignement, superintelligence, régulation, stratégie de l'Europe. Les vrais débats de fond.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <h3>🌌 Extensions vers Questions Fondamentales Connexes</h3>
+                    <p>Conscience et capacité d'agir, nature de la réalité. Quand l'IA nous pousse à questionner ce qui nous définit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Mon approche</h2>
+            
+            <div class="difference">
+                <h3>📚 40 ans de recul technologique</h3>
+                <p>J'ai vu naître la calculatrice, l'ordinateur individuel, Internet, l'email, le portable, le CD audio, le e-commerce, la photo numérique, l'iPhone... Cette perspective long-terme change tout quand on parle d'IA.</p>
+                <p style="margin-top: 15px;"><a href="https://www.linkedin.com/pulse/six-d%C3%A9cennies-dinnovation-philippe-delanghe-ghkwf/" target="_blank" style="color: #03dac6; text-decoration: underline;">→ Lire mon article "Six décennies d'innovation"</a></p>
+            </div>
+            
+            <div class="difference">
+                <h3>⚡ Les mains dans le cambouis</h3>
+                <p>Déploiement IA chez Valiantys (leader mondial Atlassian) depuis mai 2023. Hackathon, formations, gestion du changement, ROI mesuré. J'ai fait le chemin, je connais les pièges.</p>
+            </div>
+            
+            <div class="difference">
+                <h3>🎭 Approche multidimensionnelle</h3>
+                <p>Historique, instructif, pratique, stratégique, philosophique voire... métaphysique. Je m'adapte à votre public et creuse aussi loin que nécessaire.</p>
+            </div>
+            
+            <div class="difference">
+                <h3>🎸 Utilisateur quotidien</h3>
+                <p>J'utilise l'IA tous les jours : conseil stratégique, création musicale, coaching sportif, apprentissage. Je vis ce que je prêche.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Conférences & Workshops</h2>
+            
+            <h3 style="text-align: center; color: #bb86fc; margin: 40px 0 30px; font-size: 1.8em;">Entreprises & Organisations</h3>
+            
+            <div class="conferences-grid">
+                <div class="conf-card">
+                    <h4>Workshop IA & RH</h4>
+                    <p>Applications concrètes de l'IA dans les ressources humaines. Cas d'usage, outils, bonnes pratiques.</p>
+                    <a href="https://gamma.app/docs/Workshop-IA-RH-3-avril-2025-tfh3g1do42i3jxl?mode=doc" target="_blank">Voir la présentation</a>
+                </div>
+                
+                <div class="conf-card">
+                    <h4>IA Strategy Conversation</h4>
+                    <p>Séminaire entreprise sur la stratégie IA. De la vision à l'exécution.</p>
+                    <a href="https://gamma.app/docs/AI-Strategy-Conversation-0kx5n1whv34971v?mode=doc" target="_blank">Voir la présentation</a>
+                </div>
+                
+                <div class="conf-card">
+                    <h4>From Zero to Hero</h4>
+                    <p>Session de formation intensive. Maîtriser l'IA générative en 45 minutes.</p>
+                    <a href="https://gamma.app/docs/AI-Training-Session-From-Zero-to-Hero-in-45-Minutes-6wm2o7xh282l36d?mode=doc" target="_blank">Voir la présentation</a>
+                </div>
+                
+                <div class="conf-card">
+                    <h4>IA Musicale & Contexte Thérapeutique</h4>
+                    <p>L'IA au service de la création musicale en contexte thérapeutique. Europia, Cannes - Février 2025.</p>
+                    <a href="#" style="opacity: 0.7; cursor: default;">À venir</a>
+                </div>
+                
+                <div class="conf-card">
+                    <h4>IA & Production Musicale</h4>
+                    <p>Comment l'IA transforme la production musicale moderne. Studio Ferber - Avril 2025.</p>
+                    <a href="#" style="opacity: 0.7; cursor: default;">À venir</a>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; color: #03dac6; margin: 60px 0 30px; font-size: 1.8em;">Grand Public</h3>
+            
+            <div class="conferences-grid">
+                <div class="conf-card">
+                    <h4>Histoire de l'IA</h4>
+                    <p>De l'âge de pierre à ChatGPT - une perspective historique pour comprendre où nous allons.</p>
+                    <a href="https://gamma.app/docs/LIntelligence-Artificielle-De-lage-de-pierre-a-ChatGPT-lvwjokdctaciriy?mode=doc" target="_blank">Voir la présentation</a>
+                </div>
+                
+                <div class="conf-card">
+                    <h4>Vous avez dit "intelligente" ?</h4>
+                    <p>IA pour tous - démystifier la technologie, comprendre les enjeux. Accessible et sans jargon.</p>
+                    <a href="https://gamma.app/docs/Copy-of-Vous-avez-dit-intelligente--auwf9orkrdv7i1t?mode=doc" target="_blank">Voir la présentation</a>
+                </div>
+                
+                <div class="conf-card">
+                    <h4>Conférence Sorède</h4>
+                    <p>Intervention récente (septembre 2024) - synthèse de l'état de l'art IA.</p>
+                    <a href="https://gamma.app/docs/Conference-IA-Sorede-2309-lb44kvpnawxq9cx?mode=doc" target="_blank">Voir la présentation</a>
+                </div>
+            </div>
+            
+            <div style="margin-top: 60px;">
+                <h3 style="text-align: center; color: #bb86fc; margin-bottom: 30px;">Interventions réalisées</h3>
+                <div class="upcoming">
+                    <strong>Novembre 2024</strong> - Colegio Multiplo (école bilingue), Campinas, Brésil
+                </div>
+                <div class="upcoming">
+                    <strong>Début 2025</strong> - Formations club informatique, Laroque des Albères
+                </div>
+                <div class="upcoming">
+                    <strong>Février 2025</strong> - IA Musicale et contexte thérapeutique (Europia, Cannes)
+                </div>
+                <div class="upcoming">
+                    <strong>Avril 2025</strong> - IA et production musicale (Studio Ferber)
+                </div>
+                <div class="upcoming">
+                    <strong>Juin 2025</strong> - Conférence organisée par le club informatique, Laroque des Albères
+                </div>
+                <div class="upcoming">
+                    <strong>Septembre 2024</strong> - Conférence organisée par les amis du four solaire, Sorède
+                </div>
+                
+                <h3 style="text-align: center; color: #03dac6; margin: 50px 0 30px;">Prochaines interventions</h3>
+                <div class="upcoming">
+                    <strong>Novembre 2024</strong> - Comité Olympique des Pyrénées-Orientales
+                </div>
+                <div class="upcoming">
+                    <strong>Février 2025</strong> - Ville de Llupia
+                </div>
+                <div class="upcoming">
+                    <strong>En cours</strong> - Chroniqueur IA pour l'émission WebTV Figaro "The Future of Learning"
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Ils m'ont fait confiance</h2>
+            <div class="clients-list">
+                <span class="client-tag">Valiantys</span>
+                <span class="client-tag">Toshiba Tec</span>
+                <span class="client-tag">OpenClassrooms</span>
+                <span class="client-tag">Sterimed</span>
+                <span class="client-tag">Eternity Systems</span>
+                <span class="client-tag">Diagma</span>
+                <span class="client-tag">Spie Batignolles</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>Vous organisez un événement ? Une conférence ? Un séminaire d'entreprise ?</p>
+                <p style="margin: 30px 0; font-weight: 600;">Discutons de votre projet.</p>
+                
+                <p style="margin: 20px 0; color: #03dac6;">Conférences en français ou anglais • En présentiel ou à distance</p>
+                
+                <a href="mailto:Phil.delanghe@gmail.com">📧 Phil.delanghe@gmail.com</a>
+                <a href="tel:+33672721694">📱 06 72 72 16 94</a>
+                <a href="https://www.linkedin.com/in/philippedelanghe/" target="_blank">💼 LinkedIn</a>
+                
+                <div style="margin-top: 40px;">
+                    <a href="mailto:Phil.delanghe@gmail.com" class="cta-button">Réserver une conférence</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Philippe Delanghe - Conférencier & Consultant IA</p>
+        <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9em;">
+            Page web faite avec Claude<br>
+            Photos retouchées avec ChatGPT<br>
+            Affiches faites avec Gemini et ChatGPT<br>
+            Présentations faites avec Gamma<br>
+            Articles revus et corrigés par Claude et ChatGPT
+        </p>
+    </footer>
+</body>
+</html>
