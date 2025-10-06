@@ -231,6 +231,35 @@
             text-align: center;
             padding: 30px 20px;
         }
+
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .lang-btn.active {
+            background: #bb86fc;
+            border-color: #bb86fc;
+        }
         
         .testimonials {
             max-width: 900px;
@@ -269,35 +298,39 @@
 </head>
 <body>
     <header>
-     <img src="assets/Philippe_delanghe_2.jpg" alt="Philippe Delanghe" class="hero-image">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="fr" onclick="setLanguage('fr')">🇫🇷</button>
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧</button>
+        </div>
+        <img src="assets/Philippe_delanghe_2.jpg" alt="Philippe Delanghe" class="hero-image">
         <h1>Philippe Delanghe</h1>
-        <p>Conférencier & Consultant en Intelligence Artificielle</p>
-        <p><em>Des conférences qui donnent du sens</em></p>
+        <p class="multilang" data-fr="Conférencier & Consultant en Intelligence Artificielle" data-en="AI Speaker & Consultant">Conférencier & Consultant en Intelligence Artificielle</p>
+        <p><em class="multilang" data-fr="Des conférences qui donnent du sens" data-en="Talks that make sense">Des conférences qui donnent du sens</em></p>
     </header>
 
     <section>
         <div class="container">
-            <h2>Témoignages</h2>
+            <h2 class="multilang" data-fr="Témoignages" data-en="Testimonials">Témoignages</h2>
             <div class="testimonials">
-                <div class="testimonial">
+                <div class="testimonial multilang" data-fr="&quot;Cette conférence m'a vraiment intéressé et je vous en remercie grandement&quot;" data-en="&quot;This conference truly interested me and I thank you greatly for it&quot;">
                     "Cette conférence m'a vraiment intéressé et je vous en remercie grandement"
                 </div>
-                <div class="testimonial">
+                <div class="testimonial multilang" data-fr="&quot;Merci beaucoup Philippe, pour cette passionnante conférence.&quot;" data-en="&quot;Thank you very much Philippe, for this fascinating conference.&quot;">
                     "Merci beaucoup Philippe, pour cette passionnante conférence."
                 </div>
-                <div class="testimonial">
+                <div class="testimonial multilang" data-fr="&quot;Philippe a réussi à tenir en haleine son public pendant plus de deux heures, ce qui est remarquable compte tenu de la complexité des sujets abordés&quot;" data-en="&quot;Philippe managed to keep his audience captivated for over two hours, which is remarkable given the complexity of the topics covered&quot;">
                     "Philippe a réussi à tenir en haleine son public pendant plus de deux heures, ce qui est remarquable compte tenu de la complexité des sujets abordés"
                 </div>
-                <div class="testimonial">
+                <div class="testimonial multilang" data-fr="[Témoignage à venir]" data-en="[Testimonial coming soon]">
                     "[Témoignage à venir]"
                 </div>
-                <div class="testimonial">
+                <div class="testimonial multilang" data-fr="[Témoignage à venir]" data-en="[Testimonial coming soon]">
                     "[Témoignage à venir]"
                 </div>
             </div>
                 <div class="photo-card">
                   <img src="assets/AI_Philosopher.png" alt="Philippe Delanghe - AI Philosopher">
-                  <p style="margin-top: 15px; font-style: italic; color: #bb86fc;">C'est comme ça que ChatGPT me voit</p>
+                  <p class="multilang" style="margin-top: 15px; font-style: italic; color: #bb86fc;" data-fr="C'est comme ça que ChatGPT me voit" data-en="This is how ChatGPT sees me">C'est comme ça que ChatGPT me voit</p>
                 </div>
             </div>
         </div>
@@ -305,11 +338,11 @@
 
     <section>
         <div class="container">
-            <h2>Mon parcours</h2>
-            <p style="text-align: center; font-size: 1.2em; max-width: 900px; margin: 0 auto; line-height: 1.8;">
-                Né à l'époque de la règle à calcul et des tables de logarithmes, j'ai traversé 6 décennies d'innovation technologique, dans ma vie et mon travail. Ingénieur de formation et communiquant dans l'âme, l'IA m'intéresse depuis toujours - <a href="notre-derniere-invention.html" style="color: #03dac6; text-decoration: underline;">j'écrivais déjà dessus il y a plus de 10 ans</a>. Et puis... j'ai eu mon "moment ChatGPT", réalisant que l'IA générative c'était la première technologie qui... comprend ce qu'on lui dit. Et donc, accessible à tous, indépendamment de toute compétence technique. Une révolution à l'aune de l'électricité ou du transistor. Qui allait avoir un impact colossal sur notre société, ce que nous sommes et ce qui donne du sens à nos vies.
+            <h2 class="multilang" data-fr="Mon parcours" data-en="My Journey">Mon parcours</h2>
+            <p class="multilang" style="text-align: center; font-size: 1.2em; max-width: 900px; margin: 0 auto; line-height: 1.8;" data-fr='Né à l&#39;époque de la règle à calcul et des tables de logarithmes, j&#39;ai traversé 6 décennies d&#39;innovation technologique, dans ma vie et mon travail. Ingénieur de formation et communiquant dans l&#39;âme, l&#39;IA m&#39;intéresse depuis toujours - <a href="#" class="lang-link" data-fr-link="notre-derniere-invention.html" data-en-link="https://www.linkedin.com/pulse/my-take-ai-10-years-ago-philippe-delanghe-2ifrf/" style="color: #03dac6; text-decoration: underline;">j&#39;écrivais déjà dessus il y a plus de 10 ans</a>. Et puis... j&#39;ai eu mon "moment ChatGPT", réalisant que l&#39;IA générative c&#39;était la première technologie qui... comprend ce qu&#39;on lui dit. Et donc, accessible à tous, indépendamment de toute compétence technique. Une révolution à l&#39;aune de l&#39;électricité ou du transistor. Qui allait avoir un impact colossal sur notre société, ce que nous sommes et ce qui donne du sens à nos vies.' data-en='Born in the era of slide rules and logarithm tables, I&#39;ve witnessed 6 decades of technological innovation in my life and work. Engineer by training and communicator at heart, AI has always interested me - <a href="#" class="lang-link" data-fr-link="notre-derniere-invention.html" data-en-link="https://www.linkedin.com/pulse/my-take-ai-10-years-ago-philippe-delanghe-2ifrf/" style="color: #03dac6; text-decoration: underline;">I was already writing about it over 10 years ago</a>. And then... I had my "ChatGPT moment", realizing that generative AI was the first technology that... understands what we tell it. Therefore accessible to everyone, regardless of technical skills. A revolution on par with electricity or the transistor. That would have a colossal impact on our society, what we are and what gives meaning to our lives.'>
+                Né à l'époque de la règle à calcul et des tables de logarithmes, j'ai traversé 6 décennies d'innovation technologique, dans ma vie et mon travail. Ingénieur de formation et communiquant dans l'âme, l'IA m'intéresse depuis toujours - <a href="notre-derniere-invention.html" class="lang-link" data-fr-link="notre-derniere-invention.html" data-en-link="https://www.linkedin.com/pulse/my-take-ai-10-years-ago-philippe-delanghe-2ifrf/" style="color: #03dac6; text-decoration: underline;">j'écrivais déjà dessus il y a plus de 10 ans</a>. Et puis... j'ai eu mon "moment ChatGPT", réalisant que l'IA générative c'était la première technologie qui... comprend ce qu'on lui dit. Et donc, accessible à tous, indépendamment de toute compétence technique. Une révolution à l'aune de l'électricité ou du transistor. Qui allait avoir un impact colossal sur notre société, ce que nous sommes et ce qui donne du sens à nos vies.
             </p>
-            <p style="text-align: center; font-size: 1.2em; max-width: 900px; margin: 30px auto 0; line-height: 1.8;">
+            <p class="multilang" style="text-align: center; font-size: 1.2em; max-width: 900px; margin: 30px auto 0; line-height: 1.8;" data-fr='C&#39;est cette universalité et ces enjeux colossaux qui m&#39;ont fait pousser la porte du club informatique de mon village pour parler "chat j&#39;ai pété" avec les seniors du cru, puis faire une conférence ouverte à tous, puis une autre, puis une autre...' data-en='It&#39;s this universality and these colossal stakes that made me walk through the door of my village&#39;s computer club to talk about "chat jippity" with the local seniors, then give an open conference for everyone, then another, then another...'>
                 C'est cette universalité et ces enjeux colossaux qui m'ont fait pousser la porte du club informatique de mon village pour parler "chat j'ai pété" avec les seniors du cru, puis faire une conférence ouverte à tous, puis une autre, puis une autre...
             </p>
         </div>
@@ -317,61 +350,61 @@
 
     <section>
         <div class="container">
-            <h2>Thématiques de conférence</h2>
-            
-            <h3 style="text-align: center; color: #bb86fc; margin: 40px 0 30px; font-size: 1.8em;">Entreprises & Organisations</h3>
+            <h2 class="multilang" data-fr="Thématiques de conférence" data-en="Conference Topics">Thématiques de conférence</h2>
+
+            <h3 class="multilang" style="text-align: center; color: #bb86fc; margin: 40px 0 30px; font-size: 1.8em;" data-fr="Entreprises & Organisations" data-en="Companies & Organizations">Entreprises & Organisations</h3>
             <div class="themes">
                 <div class="theme-card">
-                    <h3>🎯 Vision Stratégique IA</h3>
-                    <p>Comprendre les enjeux business de l'IA générative. Au-delà du buzz : opportunités réelles, risques à anticiper, et stratégies de mise en œuvre qui fonctionnent. Pour dirigeants et décideurs.</p>
+                    <h3 class="multilang" data-fr="🎯 Vision Stratégique IA" data-en="🎯 AI Strategic Vision">🎯 Vision Stratégique IA</h3>
+                    <p class="multilang" data-fr="Comprendre les enjeux business de l'IA générative. Au-delà du buzz : opportunités réelles, risques à anticiper, et stratégies de mise en œuvre qui fonctionnent. Pour dirigeants et décideurs." data-en="Understanding the business stakes of generative AI. Beyond the hype: real opportunities, risks to anticipate, and implementation strategies that work. For executives and decision-makers.">Comprendre les enjeux business de l'IA générative. Au-delà du buzz : opportunités réelles, risques à anticiper, et stratégies de mise en œuvre qui fonctionnent. Pour dirigeants et décideurs.</p>
                 </div>
-                
+
                 <div class="theme-card">
-                    <h3>⚙️ De la Stratégie à l'Action</h3>
-                    <p>Comment passer du concept à la réalité. Identification de cas d'usage, gestion du changement, accompagnement des équipes. Retour d'expérience concret d'un déploiement IA dans une entreprise de 500 personnes.</p>
+                    <h3 class="multilang" data-fr="⚙️ De la Stratégie à l'Action" data-en="⚙️ From Strategy to Action">⚙️ De la Stratégie à l'Action</h3>
+                    <p class="multilang" data-fr="Comment passer du concept à la réalité. Identification de cas d'usage, gestion du changement, accompagnement des équipes. Retour d'expérience concret d'un déploiement IA dans une entreprise de 500 personnes." data-en="How to move from concept to reality. Use case identification, change management, team support. Concrete feedback from an AI deployment in a 500-person company.">Comment passer du concept à la réalité. Identification de cas d'usage, gestion du changement, accompagnement des équipes. Retour d'expérience concret d'un déploiement IA dans une entreprise de 500 personnes.</p>
                 </div>
-                
+
                 <div class="theme-card">
-                    <h3>💼 IA Métier</h3>
-                    <p>Applications concrètes par fonction : Marketing, RH, Sales, Formation. Workshops pratiques avec démonstrations live. De zéro à héros en 45 minutes.</p>
+                    <h3 class="multilang" data-fr="💼 IA Métier" data-en="💼 Business AI">💼 IA Métier</h3>
+                    <p class="multilang" data-fr="Applications concrètes par fonction : Marketing, RH, Sales, Formation. Workshops pratiques avec démonstrations live. De zéro à héros en 45 minutes." data-en="Concrete applications by function: Marketing, HR, Sales, Training. Practical workshops with live demonstrations. From zero to hero in 45 minutes.">Applications concrètes par fonction : Marketing, RH, Sales, Formation. Workshops pratiques avec démonstrations live. De zéro à héros en 45 minutes.</p>
                 </div>
-                
+
                 <div class="theme-card">
-                    <h3>🛠️ Formations / Initiations Outils</h3>
-                    <p>Maîtrise des outils IA : ChatGPT, Claude, Mistral, Gemini, Midjourney, NotebookLM, Suno... Sessions pratiques adaptées à vos besoins métiers.</p>
+                    <h3 class="multilang" data-fr="🛠️ Formations / Initiations Outils" data-en="🛠️ Training / Tool Workshops">🛠️ Formations / Initiations Outils</h3>
+                    <p class="multilang" data-fr="Maîtrise des outils IA : ChatGPT, Claude, Mistral, Gemini, Midjourney, NotebookLM, Suno... Sessions pratiques adaptées à vos besoins métiers." data-en="Mastering AI tools: ChatGPT, Claude, Mistral, Gemini, Midjourney, NotebookLM, Suno... Practical sessions tailored to your business needs.">Maîtrise des outils IA : ChatGPT, Claude, Mistral, Gemini, Midjourney, NotebookLM, Suno... Sessions pratiques adaptées à vos besoins métiers.</p>
                 </div>
             </div>
-            
-            <h3 style="text-align: center; color: #03dac6; margin: 60px 0 30px; font-size: 1.8em;">Grand Public</h3>
+
+            <h3 class="multilang" style="text-align: center; color: #03dac6; margin: 60px 0 30px; font-size: 1.8em;" data-fr="Grand Public" data-en="General Public">Grand Public</h3>
             <div class="themes">
                 <div class="theme-card">
-                    <h3>📚 Histoire de l'IA</h3>
-                    <p>De Turing à ChatGPT - comprendre d'où vient l'IA pour mieux saisir où elle va. Une perspective historique accessible à tous.</p>
+                    <h3 class="multilang" data-fr="📚 Histoire de l'IA" data-en="📚 History of AI">📚 Histoire de l'IA</h3>
+                    <p class="multilang" data-fr="De Turing à ChatGPT - comprendre d'où vient l'IA pour mieux saisir où elle va. Une perspective historique accessible à tous." data-en="From Turing to ChatGPT - understanding where AI comes from to better grasp where it's going. A historical perspective accessible to all.">De Turing à ChatGPT - comprendre d'où vient l'IA pour mieux saisir où elle va. Une perspective historique accessible à tous.</p>
                 </div>
-                
+
                 <div class="theme-card">
-                    <h3>🌐 Écosystème & Acteurs</h3>
-                    <p>Acteurs majeurs, enjeux économiques, géopolitique de l'IA. Les figures actuelles à écouter pour comprendre la révolution en cours.</p>
+                    <h3 class="multilang" data-fr="🌐 Écosystème & Acteurs" data-en="🌐 Ecosystem & Players">🌐 Écosystème & Acteurs</h3>
+                    <p class="multilang" data-fr="Acteurs majeurs, enjeux économiques, géopolitique de l'IA. Les figures actuelles à écouter pour comprendre la révolution en cours." data-en="Major players, economic stakes, AI geopolitics. Current figures to follow to understand the ongoing revolution.">Acteurs majeurs, enjeux économiques, géopolitique de l'IA. Les figures actuelles à écouter pour comprendre la révolution en cours.</p>
                 </div>
-                
+
                 <div class="theme-card">
-                    <h3>🔧 Outils & Usages Quotidiens</h3>
-                    <p>Découverte des outils disponibles et comment les utiliser au quotidien. Démonstrations concrètes, accessibles à tous.</p>
+                    <h3 class="multilang" data-fr="🔧 Outils & Usages Quotidiens" data-en="🔧 Tools & Daily Use">🔧 Outils & Usages Quotidiens</h3>
+                    <p class="multilang" data-fr="Découverte des outils disponibles et comment les utiliser au quotidien. Démonstrations concrètes, accessibles à tous." data-en="Discovering available tools and how to use them daily. Concrete demonstrations, accessible to all.">Découverte des outils disponibles et comment les utiliser au quotidien. Démonstrations concrètes, accessibles à tous.</p>
                 </div>
-                
+
                 <div class="theme-card">
-                    <h3>⚠️ Dangers & Protection</h3>
-                    <p>Comprendre les risques réels de l'IA et comment s'en prémunir. Deepfakes, manipulation, vie privée - sans catastrophisme, avec pragmatisme.</p>
+                    <h3 class="multilang" data-fr="⚠️ Dangers & Protection" data-en="⚠️ Risks & Protection">⚠️ Dangers & Protection</h3>
+                    <p class="multilang" data-fr="Comprendre les risques réels de l'IA et comment s'en prémunir. Deepfakes, manipulation, vie privée - sans catastrophisme, avec pragmatisme." data-en="Understanding real AI risks and how to protect yourself. Deepfakes, manipulation, privacy - without catastrophism, with pragmatism.">Comprendre les risques réels de l'IA et comment s'en prémunir. Deepfakes, manipulation, vie privée - sans catastrophisme, avec pragmatisme.</p>
                 </div>
-                
+
                 <div class="theme-card">
-                    <h3>🧠 Grandes Questions de Société</h3>
-                    <p>Fin du travail, scénarios utopiques et dystopiques, singularité, alignement, superintelligence, régulation, stratégie de l'Europe. Les vrais débats de fond.</p>
+                    <h3 class="multilang" data-fr="🧠 Grandes Questions de Société" data-en="🧠 Major Social Questions">🧠 Grandes Questions de Société</h3>
+                    <p class="multilang" data-fr="Fin du travail, scénarios utopiques et dystopiques, singularité, alignement, superintelligence, régulation, stratégie de l'Europe. Les vrais débats de fond." data-en="End of work, utopian and dystopian scenarios, singularity, alignment, superintelligence, regulation, Europe's strategy. The real fundamental debates.">Fin du travail, scénarios utopiques et dystopiques, singularité, alignement, superintelligence, régulation, stratégie de l'Europe. Les vrais débats de fond.</p>
                 </div>
-                
+
                 <div class="theme-card">
-                    <h3>🌌 Extensions vers Questions Fondamentales Connexes</h3>
-                    <p>Conscience et capacité d'agir, nature de la réalité. Quand l'IA nous pousse à questionner ce qui nous définit.</p>
+                    <h3 class="multilang" data-fr="🌌 Extensions vers Questions Fondamentales Connexes" data-en="🌌 Extensions to Related Fundamental Questions">🌌 Extensions vers Questions Fondamentales Connexes</h3>
+                    <p class="multilang" data-fr="Conscience et capacité d'agir, nature de la réalité. Quand l'IA nous pousse à questionner ce qui nous définit." data-en="Consciousness and agency, nature of reality. When AI pushes us to question what defines us.">Conscience et capacité d'agir, nature de la réalité. Quand l'IA nous pousse à questionner ce qui nous définit.</p>
                 </div>
             </div>
         </div>
@@ -379,135 +412,135 @@
 
     <section>
         <div class="container">
-            <h2>Mon approche</h2>
-            
+            <h2 class="multilang" data-fr="Mon approche" data-en="My Approach">Mon approche</h2>
+
             <div class="difference">
-                <h3>📚 40 ans de recul technologique</h3>
-                <p>J'ai vu naître la calculatrice, l'ordinateur individuel, Internet, l'email, le portable, le CD audio, le e-commerce, la photo numérique, l'iPhone... Cette perspective long-terme change tout quand on parle d'IA.</p>
-                <p style="margin-top: 15px;"><a href="https://www.linkedin.com/pulse/six-d%C3%A9cennies-dinnovation-philippe-delanghe-ghkwf/" target="_blank" style="color: #03dac6; text-decoration: underline;">→ Lire mon article "Six décennies d'innovation"</a></p>
+                <h3 class="multilang" data-fr="📚 40 ans de recul technologique" data-en="📚 40 years of tech perspective">📚 40 ans de recul technologique</h3>
+                <p class="multilang" data-fr="J'ai vu naître la calculatrice, l'ordinateur individuel, Internet, l'email, le portable, le CD audio, le e-commerce, la photo numérique, l'iPhone... Cette perspective long-terme change tout quand on parle d'IA." data-en="I've witnessed the birth of the calculator, personal computer, Internet, email, mobile phone, audio CD, e-commerce, digital photography, iPhone... This long-term perspective changes everything when talking about AI.">J'ai vu naître la calculatrice, l'ordinateur individuel, Internet, l'email, le portable, le CD audio, le e-commerce, la photo numérique, l'iPhone... Cette perspective long-terme change tout quand on parle d'IA.</p>
+                <p style="margin-top: 15px;"><a href="#" target="_blank" style="color: #03dac6; text-decoration: underline;" class="multilang lang-link" data-fr='→ Lire mon article "Six décennies d&#39;innovation"' data-en='→ Read my article "Six decades of innovation"' data-fr-link="https://www.linkedin.com/pulse/six-d%C3%A9cennies-dinnovation-philippe-delanghe-ghkwf/" data-en-link="https://www.linkedin.com/pulse/6-decades-innovation-philippe-delanghe-tx2rf/">→ Lire mon article "Six décennies d'innovation"</a></p>
             </div>
-            
+
             <div class="difference">
-                <h3>⚡ Les mains dans le cambouis</h3>
-                <p>Déploiement IA chez Valiantys (leader mondial Atlassian) depuis mai 2023. Hackathon, formations, gestion du changement, mesure de ROI. L'AI touche tout.</p>
+                <h3 class="multilang" data-fr="⚡ Les mains dans le cambouis" data-en="⚡ Hands-on experience">⚡ Les mains dans le cambouis</h3>
+                <p class="multilang" data-fr="Déploiement IA chez Valiantys (leader mondial Atlassian) depuis mai 2023. Hackathon, formations, gestion du changement, mesure de ROI. L'AI touche tout." data-en="AI deployment at Valiantys (Atlassian world leader) since May 2023. Hackathon, training, change management, ROI measurement. AI touches everything.">Déploiement IA chez Valiantys (leader mondial Atlassian) depuis mai 2023. Hackathon, formations, gestion du changement, mesure de ROI. L'AI touche tout.</p>
             </div>
-            
+
             <div class="difference">
-                <h3>🎭 Approche multidimensionnelle</h3>
-                <p>Historique, instructif, pratique, stratégique, philosophique voire... métaphysique. Je m'adapte au public et creuse aussi loin que nécessaire. Et ça peut aller très, très loin !</p>
+                <h3 class="multilang" data-fr="🎭 Approche multidimensionnelle" data-en="🎭 Multidimensional approach">🎭 Approche multidimensionnelle</h3>
+                <p class="multilang" data-fr="Historique, instructif, pratique, stratégique, philosophique voire... métaphysique. Je m'adapte au public et creuse aussi loin que nécessaire. Et ça peut aller très, très loin !" data-en="Historical, instructive, practical, strategic, philosophical even... metaphysical. I adapt to the audience and dig as deep as necessary. And that can go very, very far!">Historique, instructif, pratique, stratégique, philosophique voire... métaphysique. Je m'adapte au public et creuse aussi loin que nécessaire. Et ça peut aller très, très loin !</p>
             </div>
-            
+
             <div class="difference">
-                <h3>🎸 Utilisateur quotidien</h3>
-                <p>J'utilise l'IA tous les jours : conseil stratégique, création musicale, coaching sportif, apprentissage. Je vis ce que je prêche.</p>
+                <h3 class="multilang" data-fr="🎸 Utilisateur quotidien" data-en="🎸 Daily user">🎸 Utilisateur quotidien</h3>
+                <p class="multilang" data-fr="J'utilise l'IA tous les jours : conseil stratégique, création musicale, coaching sportif, apprentissage. Je vis ce que je prêche." data-en="I use AI every day: strategic consulting, music creation, sports coaching, learning. I practice what I preach.">J'utilise l'IA tous les jours : conseil stratégique, création musicale, coaching sportif, apprentissage. Je vis ce que je prêche.</p>
             </div>
         </div>
     </section>
 
     <section>
         <div class="container">
-            <h2>Conférences & Workshops</h2>
-            
-            <h3 style="text-align: center; color: #bb86fc; margin: 40px 0 30px; font-size: 1.8em;">Entreprises & Organisations</h3>
+            <h2 class="multilang" data-fr="Exemples de prestations réalisées" data-en="Some recent events">Exemples de prestations réalisées</h2>
+
+            <h3 class="multilang" style="text-align: center; color: #bb86fc; margin: 40px 0 30px; font-size: 1.8em;" data-fr="Entreprises & Organisations" data-en="Companies & Organizations">Entreprises & Organisations</h3>
             
             <div class="conferences-grid">
                 <div class="conf-card">
-                    <h4>Workshop IA & RH</h4>
-                    <p>Applications concrètes de l'IA dans les ressources humaines. Cas d'usage, outils, bonnes pratiques.</p>
-                    <a href="https://gamma.app/docs/Workshop-IA-RH-3-avril-2025-tfh3g1do42i3jxl?mode=doc" target="_blank">Voir la présentation</a>
+                    <h4 class="multilang" data-fr="Workshop IA & RH" data-en="AI & HR Workshop">Workshop IA & RH</h4>
+                    <p class="multilang" data-fr="Applications concrètes de l'IA dans les ressources humaines. Cas d'usage, outils, bonnes pratiques." data-en="Concrete AI applications in human resources. Use cases, tools, best practices.">Applications concrètes de l'IA dans les ressources humaines. Cas d'usage, outils, bonnes pratiques.</p>
+                    <a href="https://gamma.app/docs/Workshop-IA-RH-3-avril-2025-tfh3g1do42i3jxl?mode=doc" target="_blank" class="multilang" data-fr="Voir la présentation" data-en="View presentation">Voir la présentation</a>
                 </div>
-                
+
                 <div class="conf-card">
-                    <h4>IA Strategy Conversation</h4>
-                    <p>Séminaire entreprise sur la stratégie IA. De la vision à l'exécution.</p>
-                    <a href="https://gamma.app/docs/AI-Strategy-Conversation-0kx5n1whv34971v?mode=doc" target="_blank">Voir la présentation</a>
+                    <h4 class="multilang" data-fr="IA Strategy Conversation" data-en="AI Strategy Conversation">IA Strategy Conversation</h4>
+                    <p class="multilang" data-fr="Séminaire entreprise sur la stratégie IA. De la vision à l'exécution." data-en="Corporate seminar on AI strategy. From vision to execution.">Séminaire entreprise sur la stratégie IA. De la vision à l'exécution.</p>
+                    <a href="https://gamma.app/docs/AI-Strategy-Conversation-0kx5n1whv34971v?mode=doc" target="_blank" class="multilang" data-fr="Voir la présentation" data-en="View presentation">Voir la présentation</a>
                 </div>
-                
+
                 <div class="conf-card">
-                    <h4>From Zero to Hero</h4>
-                    <p>Session de formation intensive. Maîtriser l'IA générative en 45 minutes.</p>
-                    <a href="https://gamma.app/docs/AI-Training-Session-From-Zero-to-Hero-in-45-Minutes-6wm2o7xh282l36d?mode=doc" target="_blank">Voir la présentation</a>
+                    <h4 class="multilang" data-fr="From Zero to Hero" data-en="From Zero to Hero">From Zero to Hero</h4>
+                    <p class="multilang" data-fr="Session de formation intensive. Maîtriser l'IA générative en 45 minutes." data-en="Intensive training session. Master generative AI in 45 minutes.">Session de formation intensive. Maîtriser l'IA générative en 45 minutes.</p>
+                    <a href="https://gamma.app/docs/AI-Training-Session-From-Zero-to-Hero-in-45-Minutes-6wm2o7xh282l36d?mode=doc" target="_blank" class="multilang" data-fr="Voir la présentation" data-en="View presentation">Voir la présentation</a>
                 </div>
                 
                 <div class="conf-card">
                     <a href="assets/IA_Musicale.jpg" target="_blank">
                         <img src="assets/IA_Musicale.jpg" alt="Affiche IA Musicale Thérapeutique">
                     </a>
-                    <h4>IA Musicale & Contexte Thérapeutique</h4>
-                    <p>L'IA au service de la création musicale en contexte thérapeutique. Europia, Cannes - Février 2025.</p>
-                    <a href="#" style="opacity: 0.7; cursor: default;">À venir</a>
-                    <a href="assets/IA_Musicale.jpg" target="_blank">Voir l'affiche</a>
+                    <h4 class="multilang" data-fr="IA Musicale & Contexte Thérapeutique" data-en="Musical AI & Therapeutic Context">IA Musicale & Contexte Thérapeutique</h4>
+                    <p class="multilang" data-fr="L'IA au service de la création musicale en contexte thérapeutique. Europia, Cannes - Février 2025." data-en="AI for music creation in therapeutic context. Europia, Cannes - February 2025.">L'IA au service de la création musicale en contexte thérapeutique. Europia, Cannes - Février 2025.</p>
+                    <a href="#" style="opacity: 0.7; cursor: default;" class="multilang" data-fr="À venir" data-en="Coming soon">À venir</a>
+                    <a href="assets/IA_Musicale.jpg" target="_blank" class="multilang" data-fr="Voir l'affiche" data-en="View poster">Voir l'affiche</a>
                 </div>
-                
+
                 <div class="conf-card">
-                    <h4>IA & Production Musicale</h4>
-                    <p>Comment l'IA transforme la production musicale moderne. Studio Ferber - Avril 2025.</p>
-                    <a href="assets/Compte_rendu_masterclass_Ferber.pdf" target="_blank">Télécharger le compte rendu</a>
+                    <h4 class="multilang" data-fr="IA & Production Musicale" data-en="AI & Music Production">IA & Production Musicale</h4>
+                    <p class="multilang" data-fr="Comment l'IA transforme la production musicale moderne. Studio Ferber - Avril 2025." data-en="How AI transforms modern music production. Studio Ferber - April 2025.">Comment l'IA transforme la production musicale moderne. Studio Ferber - Avril 2025.</p>
+                    <a href="assets/Compte_rendu_masterclass_Ferber.pdf" target="_blank" class="multilang" data-fr="Télécharger le compte rendu" data-en="Download report">Télécharger le compte rendu</a>
                 </div>
             </div>
             
-            <h3 style="text-align: center; color: #03dac6; margin: 60px 0 30px; font-size: 1.8em;">Grand Public</h3>
-            
+            <h3 class="multilang" style="text-align: center; color: #03dac6; margin: 60px 0 30px; font-size: 1.8em;" data-fr="Grand Public" data-en="General Public">Grand Public</h3>
+
             <div class="conferences-grid">
                 <div class="conf-card">
-                    <h4>Histoire de l'IA</h4>
-                    <p>De l'âge de pierre à ChatGPT - une perspective historique pour comprendre où nous allons.</p>
-                    <a href="https://gamma.app/docs/LIntelligence-Artificielle-De-lage-de-pierre-a-ChatGPT-lvwjokdctaciriy?mode=doc" target="_blank">Voir la présentation</a>
+                    <h4 class="multilang" data-fr="Histoire de l'IA" data-en="History of AI">Histoire de l'IA</h4>
+                    <p class="multilang" data-fr="De l'âge de pierre à ChatGPT - une perspective historique pour comprendre où nous allons." data-en="From the Stone Age to ChatGPT - a historical perspective to understand where we're going.">De l'âge de pierre à ChatGPT - une perspective historique pour comprendre où nous allons.</p>
+                    <a href="https://gamma.app/docs/LIntelligence-Artificielle-De-lage-de-pierre-a-ChatGPT-lvwjokdctaciriy?mode=doc" target="_blank" class="multilang" data-fr="Voir la présentation" data-en="View presentation">Voir la présentation</a>
                 </div>
                 
                 <div class="conf-card">
                     <a href="assets/Affiche_IA_10juin.jpg" target="_blank">
                         <img src="assets/Affiche_IA_10juin.jpg" alt="Affiche Conférence Laroque">
                     </a>
-                    <h4>Conférence Laroque</h4>
-                    <p>IA pour tous - démystifier la technologie, comprendre les enjeux. Accessible et sans jargon.</p>
-                    <a href="https://gamma.app/docs/Copy-of-Vous-avez-dit-intelligente--auwf9orkrdv7i1t?mode=doc" target="_blank">Voir la présentation</a>
-                    <a href="assets/Affiche_IA_10juin.jpg" target="_blank">Voir l'affiche</a>
+                    <h4 class="multilang" data-fr="Conférence Laroque" data-en="Laroque Conference">Conférence Laroque</h4>
+                    <p class="multilang" data-fr="IA pour tous - démystifier la technologie, comprendre les enjeux. Accessible et sans jargon." data-en="AI for everyone - demystifying the technology, understanding the stakes. Accessible and jargon-free.">IA pour tous - démystifier la technologie, comprendre les enjeux. Accessible et sans jargon.</p>
+                    <a href="https://gamma.app/docs/Copy-of-Vous-avez-dit-intelligente--auwf9orkrdv7i1t?mode=doc" target="_blank" class="multilang" data-fr="Voir la présentation" data-en="View presentation">Voir la présentation</a>
+                    <a href="assets/Affiche_IA_10juin.jpg" target="_blank" class="multilang" data-fr="Voir l'affiche" data-en="View poster">Voir l'affiche</a>
                 </div>
-                
+
                 <div class="conf-card">
                     <a href="assets/affiche_sorede.jpg" target="_blank">
                         <img src="assets/affiche_sorede.jpg" alt="Affiche Conférence Sorède">
                     </a>
-                    <h4>Conférence Sorède</h4>
-                    <p>Intervention récente (septembre 2024) - synthèse de l'état de l'art IA.</p>
-                    <a href="https://gamma.app/docs/Conference-IA-Sorede-2309-lb44kvpnawxq9cx?mode=doc" target="_blank">Voir la présentation</a>
-                    <a href="assets/affiche_sorede.jpg" target="_blank">Voir l'affiche</a>
+                    <h4 class="multilang" data-fr="Conférence Sorède" data-en="Sorède Conference">Conférence Sorède</h4>
+                    <p class="multilang" data-fr="Intervention récente (septembre 2024) - synthèse de l'état de l'art IA." data-en="Recent intervention (September 2024) - AI state of the art synthesis.">Intervention récente (septembre 2024) - synthèse de l'état de l'art IA.</p>
+                    <a href="https://gamma.app/docs/Conference-IA-Sorede-2309-lb44kvpnawxq9cx?mode=doc" target="_blank" class="multilang" data-fr="Voir la présentation" data-en="View presentation">Voir la présentation</a>
+                    <a href="assets/affiche_sorede.jpg" target="_blank" class="multilang" data-fr="Voir l'affiche" data-en="View poster">Voir l'affiche</a>
                 </div>
             </div>
             
             <div style="margin-top: 60px;">
-                <h3 style="text-align: center; color: #bb86fc; margin-bottom: 30px;">Dernières interventions</h3>
-                <div class="upcoming">
+                <h3 class="multilang" style="text-align: center; color: #bb86fc; margin-bottom: 30px;" data-fr="Dernières interventions" data-en="Recent Talks">Dernières interventions</h3>
+                <div class="upcoming multilang" data-fr="<strong>Novembre 2024</strong> - Colegio Multiplo (école bilingue), Campinas, Brésil" data-en="<strong>November 2024</strong> - Colegio Multiplo (bilingual school), Campinas, Brazil">
                     <strong>Novembre 2024</strong> - Colegio Multiplo (école bilingue), Campinas, Brésil
                 </div>
-                <div class="upcoming">
+                <div class="upcoming multilang" data-fr="<strong>Décembre 2025</strong> - Nuit de l'IA (théâtre de l'IA, Paris)" data-en="<strong>December 2025</strong> - AI Night (AI theater, Paris)">
                     <strong>Décembre 2025</strong> - Nuit de l'IA (théâtre de l'IA, Paris)
                 </div>
-                <div class="upcoming">
+                <div class="upcoming multilang" data-fr="<strong>Début 2025</strong> - Formations club informatique, Laroque des Albères" data-en="<strong>Early 2025</strong> - Computer club training, Laroque des Albères">
                     <strong>Début 2025</strong> - Formations club informatique, Laroque des Albères
                 </div>
-                <div class="upcoming">
+                <div class="upcoming multilang" data-fr="<strong>Février 2025</strong> - IA Musicale et contexte thérapeutique (Europia, Cannes)" data-en="<strong>February 2025</strong> - Musical AI and therapeutic context (Europia, Cannes)">
                     <strong>Février 2025</strong> - IA Musicale et contexte thérapeutique (Europia, Cannes)
                 </div>
-                <div class="upcoming">
+                <div class="upcoming multilang" data-fr="<strong>Avril 2025</strong> - IA et production musicale (Studio Ferber)" data-en="<strong>April 2025</strong> - AI and music production (Studio Ferber)">
                     <strong>Avril 2025</strong> - IA et production musicale (Studio Ferber)
                 </div>
-                <div class="upcoming">
+                <div class="upcoming multilang" data-fr="<strong>Juin 2025</strong> - Conférence organisée par le club informatique, Laroque des Albères" data-en="<strong>June 2025</strong> - Conference organized by computer club, Laroque des Albères">
                     <strong>Juin 2025</strong> - Conférence organisée par le club informatique, Laroque des Albères
                 </div>
-                <div class="upcoming">
+                <div class="upcoming multilang" data-fr="<strong>Septembre 2025</strong> - Conférence organisée par les amis du four solaire, Sorède" data-en="<strong>September 2025</strong> - Conference organized by solar oven friends, Sorède">
                     <strong>Septembre 2025</strong> - Conférence organisée par les amis du four solaire, Sorède
                 </div>
-                
-                <h3 style="text-align: center; color: #03dac6; margin: 50px 0 30px;">Prochaines interventions</h3>
-                <div class="upcoming">
+
+                <h3 class="multilang" style="text-align: center; color: #03dac6; margin: 50px 0 30px;" data-fr="Prochaines interventions" data-en="Upcoming Talks">Prochaines interventions</h3>
+                <div class="upcoming multilang" data-fr="<strong>Novembre 2025</strong> - Comité Olympique des Pyrénées-Orientales" data-en="<strong>November 2025</strong> - Olympic Committee of Pyrénées-Orientales">
                     <strong>Novembre 2025</strong> - Comité Olympique des Pyrénées-Orientales
                 </div>
-                <div class="upcoming">
+                <div class="upcoming multilang" data-fr="<strong>Février 2025</strong> - Ville de Llupia" data-en="<strong>February 2025</strong> - City of Llupia">
                     <strong>Février 2025</strong> - Ville de Llupia
                 </div>
-                <div class="upcoming">
+                <div class="upcoming multilang" data-fr='<strong>Octobre 2025</strong> - Chroniqueur IA pour l&#39;émission WebTV Figaro "The Future of Learning"' data-en='<strong>October 2025</strong> - AI columnist for Figaro WebTV show "The Future of Learning"'>
                     <strong>Octobre 2025</strong> - Chroniqueur IA pour l'émission WebTV Figaro "The Future of Learning"
                 </div>
             </div>
@@ -516,7 +549,7 @@
 
     <section>
         <div class="container">
-            <h2>Ils m'ont fait confiance</h2>
+            <h2 class="multilang" data-fr="Ils m'ont fait confiance" data-en="They Trusted Me">Ils m'ont fait confiance</h2>
             <div class="clients-list">
                 <span class="client-tag">Valiantys</span>
                 <span class="client-tag">Toshiba Tec</span>
@@ -531,36 +564,80 @@
 
     <section>
         <div class="container">
-            <h2>Contact</h2>
+            <h2 class="multilang" data-fr="Contact" data-en="Contact">Contact</h2>
             <div class="contact-info">
-                <p>Vous organisez un événement ? Une conférence ? Un séminaire d'entreprise ?</p>
-                <p style="margin: 30px 0; font-weight: 600;">Discutons en.</p>
-                
-                <p style="margin: 20px 0; color: #03dac6;">Conférences en français ou anglais • En présentiel ou à distance</p>
-                
+                <p class="multilang" data-fr="Vous organisez un événement ? Une conférence ? Un séminaire d'entreprise ?" data-en="Organizing an event? A conference? A corporate seminar?">Vous organisez un événement ? Une conférence ? Un séminaire d'entreprise ?</p>
+                <p class="multilang" style="margin: 30px 0; font-weight: 600;" data-fr="Discutons en." data-en="Let's talk.">Discutons en.</p>
+
+                <p class="multilang" style="margin: 20px 0; color: #03dac6;" data-fr="Conférences en français ou anglais • En présentiel ou à distance" data-en="Conferences in French or English • In-person or remote">Conférences en français ou anglais • En présentiel ou à distance</p>
+
                 <a href="mailto:Phil.delanghe@gmail.com">📧 Phil.delanghe@gmail.com</a>
                 <a href="tel:+33672721694">📱 06 72 72 16 94</a>
                 <a href="https://www.linkedin.com/in/philippedelanghe/" target="_blank">💼 LinkedIn</a>
-                
+
                 <div style="margin-top: 40px;">
-                    <a href="mailto:Phil.delanghe@gmail.com" class="cta-button">Réserver une conférence</a>
+                    <a href="mailto:Phil.delanghe@gmail.com" class="cta-button multilang" data-fr="Réserver une conférence" data-en="Book a conference">Réserver une conférence</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Philippe Delanghe - Conférencier & Consultant IA</p>
-        <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9em;">
+        <p class="multilang" data-fr="&copy; 2024 Philippe Delanghe - Conférencier & Consultant IA" data-en="&copy; 2024 Philippe Delanghe - AI Speaker & Consultant">&copy; 2024 Philippe Delanghe - Conférencier & Consultant IA</p>
+        <p class="multilang" style="margin-top: 20px; opacity: 0.7; font-size: 0.9em;" data-fr="Page web faite avec Claude, ChatGPT et GitHub<br>Photos retouchées avec ChatGPT<br>Affiches faites avec Gemini et ChatGPT<br>Présentations faites avec Gamma, Gemini, ChatGPT, Claude<br>Articles revus et corrigés par Claude et ChatGPT<br>Traduction par Claude Code" data-en="Website made with Claude, ChatGPT and GitHub<br>Photos edited with ChatGPT<br>Posters made with Gemini and ChatGPT<br>Presentations made with Gamma, Gemini, ChatGPT, Claude<br>Articles reviewed and corrected by Claude and ChatGPT<br>Translation by Claude Code">
             Page web faite avec Claude, ChatGPT et GitHub<br>
             Photos retouchées avec ChatGPT<br>
             Affiches faites avec Gemini et ChatGPT<br>
             Présentations faites avec Gamma, Gemini, ChatGPT, Claude<br>
-            Articles revus et corrigés par Claude et ChatGPT
+            Articles revus et corrigés par Claude et ChatGPT<br>
+            Traduction par Claude Code
         </p>
         <p style="margin-top: 30px; opacity: 0.6; font-size: 0.85em; border-top: 1px solid #333; padding-top: 20px;">
             Copyright NextSquared 2025 - SAS au capital de 1000 euros - Siren : 821 684 826
         </p>
     </footer>
+
+    <script>
+        let currentLang = 'fr';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+
+            // Update all multilang elements
+            document.querySelectorAll('.multilang').forEach(element => {
+                const text = element.getAttribute('data-' + lang);
+                if (text) {
+                    element.innerHTML = text;
+                }
+            });
+
+            // Update language-specific links
+            document.querySelectorAll('.lang-link').forEach(link => {
+                const url = link.getAttribute('data-' + lang + '-link');
+                if (url) {
+                    link.href = url;
+                }
+            });
+
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Save preference
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // Load saved language preference on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang && savedLang !== 'fr') {
+                setLanguage(savedLang);
+            }
+        });
+    </script>
 </body>
 </html>
